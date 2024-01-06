@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-function App() {
+function DevTool() {
+  const navigate = useNavigate();
   return (
     <>
+      <button onClick={() => navigate('/')}>홈으로</button>
       <StyledMain>
         스타일드 컴포넌트 클래스 네임 없이 사용
         <StyledList>
@@ -23,7 +26,7 @@ function App() {
   );
 }
 
-export default App;
+export default DevTool;
 
 const StyledMain = styled.main``;
 const StyledList = styled.ul``;
