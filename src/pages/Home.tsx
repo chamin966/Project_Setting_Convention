@@ -9,6 +9,7 @@ function Home() {
         개발자 도구 클래스 네임 비교 페이지
       </button>
       <button onClick={() => navigate('/buttons')}>버튼즈 페이지</button>
+      <button onClick={() => navigate('/themeTest')}>theme test 페이지</button>
     </StyledHome>
   );
 }

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import theme from '../../styles/theme';
 
 /**
  * **label**: 버튼 텍스트
@@ -45,7 +46,7 @@ type Size = {
 /**
  * 버튼의 테마에 대한 속성을 정의한 Theme 타입입니다.
  */
-type Theme = {
+type ButtonTheme = {
   [key: string]: {
     backgroundColor: string;
     color: string;
@@ -74,19 +75,20 @@ const sizes: Size = {
 /**
  * 버튼의 테마에 대한 기본값을 정의한 객체입니다.
  */
-const themes: Theme = {
+// css 코드가 아닌 js 객체 코드에서는 파일로 임포트 해오면 된다.
+const buttonThemes: ButtonTheme = {
   primary: {
-    backgroundColor: '#fff',
-    color: '#202020',
+    backgroundColor: theme.palette.white,
+    color: theme.palette.black,
   },
   secondary: {
-    backgroundColor: '#346ba4',
-    color: '#fff',
+    backgroundColor: theme.palette.main,
+    color: theme.palette.black,
   },
   pink: {
-    backgroundColor: 'pink',
-    color: 'black',
-    border: '5px solid green',
+    backgroundColor: theme.palette.pink,
+    color: theme.palette.black,
+    border: `5px solid ${theme.palette.green}`,
   },
 };
 
@@ -94,9 +96,9 @@ const themes: Theme = {
  * 버튼의 크기에 따른 스타일을 설정하는 CSS 코드입니다.
  */
 const sizeStyles = css<ButtonProps>`
-  ${({ size }) => css`
-    padding: ${sizes[size].padding};
-    font-size: ${sizes[size].fontSize};
+  ${(props) => css`
+    padding: ${sizes[props.size].padding};
+    font-size: ${sizes[props.size].fontSize};
   `}
 `;
 
@@ -104,10 +106,10 @@ const sizeStyles = css<ButtonProps>`
  * 버튼의 테마에 따른 스타일을 설정하는 CSS 코드입니다.
  */
 const themeStyles = css<ButtonProps>`
-  ${({ theme }) => css`
-    background-color: ${themes[theme].backgroundColor};
-    color: ${themes[theme].color};
-    border: ${themes[theme].border};
+  ${(props) => css`
+    background-color: ${buttonThemes[props.theme].backgroundColor};
+    color: ${buttonThemes[props.theme].color};
+    border: ${buttonThemes[props.theme].border};
   `}
 `;
 
@@ -117,7 +119,7 @@ const themeStyles = css<ButtonProps>`
 const Button = styled.button<ButtonProps>`
   /* 기본값 */
   border-radius: 6px;
-  border: 1px solid #346ba4;
+  border: 1px solid ${theme.palette.main};
   font-weight: 700;
 
   /* size */
