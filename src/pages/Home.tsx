@@ -10,6 +10,9 @@ function Home() {
       </button>
       <button onClick={() => navigate('/buttons')}>버튼즈 페이지</button>
       <button onClick={() => navigate('/themeTest')}>theme test 페이지</button>
+      <button onClick={() => navigate('/variablesTest')}>
+        variables test 페이지
+      </button>
     </StyledHome>
   );
 }

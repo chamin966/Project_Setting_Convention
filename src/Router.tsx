@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import DevTool from './pages/DevTool';
 import Buttons from './pages/Buttons';
 import ThemeTest from './pages/ThemeTest';
+import VariableTest from './pages/VariableTest';
 
 function Router() {
   return (
@@ -12,6 +13,7 @@ function Router() {
         <Route path='/devtool' element={<DevTool />} />
         <Route path='/buttons' element={<Buttons />} />
         <Route path='/themeTest' element={<ThemeTest />} />
+        <Route path='variablesTest' element={<VariableTest />} />
       </Routes>
     </BrowserRouter>
   );
