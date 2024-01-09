@@ -10,6 +10,7 @@ interface ButtonProps {
   label?: string; // 버튼에 표시되는 텍스트
   theme: string; // 버튼의 테마 설정: primary(기본값), secondary
   size: string; // 버튼의 크기 설정: large(기본값), medium, small
+  event?: () =>void;
 }
 
 /**
@@ -25,7 +26,7 @@ CommonButton.defaultProps = {
  */
 function CommonButton(props: ButtonProps) {
   return (
-    <Button size={props.size} theme={props.theme}>
+    <Button size={props.size} theme={props.theme} onClick={props.event}>
       {props.label}
     </Button>
   );
