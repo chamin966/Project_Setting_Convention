@@ -4,7 +4,7 @@ import { DndProvider } from "react-dnd";
 
 import { testData } from "../Data/testData";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import Row from "../components/molecule/row";
+import Row from "../components/molecule/Row";
 
 function DnDTest() {
   const navigate = useNavigate();

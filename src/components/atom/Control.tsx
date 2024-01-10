@@ -4,7 +4,7 @@ import { ItemTypes } from "../../Data/itemType";
 import { Identifier, XYCoord } from "dnd-core";
 import styled from "styled-components";
 
-// 컨트롤 컴포넌트의 매개변수 정의
+// 컨트롤 컴포넌트의 매개변수를 정의합니다.
 export interface ControlProps {
   id: string;
   text: string;
@@ -12,12 +12,12 @@ export interface ControlProps {
   moveControl: (dragIndex: number, hoverIndex: number) => void;
 }
 
-// 스타일드 컴포넌트에서 사용할 프롭스 타입 정의
+// Styled 컴포넌트에서 사용될 prop 타입을 정의합니다.
 interface StyledControlProps {
   isDragging: boolean;
 }
 
-// 드래그 아이템 매개변수 정의
+// 드래그 항목의 매개변수를 정의합니다.
 interface DragItem {
   index: number;
   id: string;
@@ -26,10 +26,10 @@ interface DragItem {
 
 // 컨트롤 컴포넌트 정의
 function Control({ id, text, index, moveControl }: ControlProps) {
-  // 컨트롤의 DOM 요소에 대한 참조 생성
+  // 컨트롤의 DOM 요소에 대한 참조를 생성합니다.
   const ref = useRef<HTMLDivElement>(null);
 
-  // 드래그 앤 드롭을 위한 훅 사용
+  // 드래그 앤 드롭을 위한 훅을 사용합니다.
   const [{ handlerId }, drop] = useDrop<
     DragItem,
     void,
@@ -47,40 +47,40 @@ function Control({ id, text, index, moveControl }: ControlProps) {
       const dragIndex = item.index;
       const hoverIndex = index;
 
-      // 같은 아이템끼리는 교체하지 않음
+      // 동일한 항목을 교체하지 않습니다.
       if (dragIndex === hoverIndex) return;
 
-      // 화면에서 아이템의 사각 영역 결정
+      // 화면 상의 항목의 직사각형 영역을 결정합니다.
       const hoverBoundingRect = ref.current.getBoundingClientRect();
 
-      // 수직 중앙 위치 확인
+      // 수직 중앙 위치를 확인합니다.
       const hoverMiddleY =
         (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
 
-      // 마우스 위치 확인
+      // 마우스 위치를 확인합니다.
       const clientOffset = monitor.getClientOffset();
 
-      // 위쪽부터의 픽셀 값 확인
+      // 상단에서의 픽셀 값 확인
       const hoverClientY = (clientOffset as XYCoord).y - hoverBoundingRect.top;
 
-      // 마우스가 아이템 높이의 반 이상을 넘어간 경우에만 이동 수행
-      // 아래로 드래깅할 때는 커서가 50% 이상 아래에 있을 때만 이동
-      // 위로 드래깅할 때는 커서가 50% 이상 위에 있을 때만 이동
-      // 아닌 경우에는 이동하지 않음
+      // 마우스가 항목의 높이의 절반 이상 지날 때만 이동합니다.
+      // 아래로 드래그할 때는 커서가 50% 이상 아래로 내려갈 때만 이동합니다.
+      // 위로 드래그할 때는 커서가 50% 이상 위로 올라갈 때만 이동합니다.
+      // 그렇지 않으면 이동하지 않습니다.
 
-      // 아래로 드래깅
+      // 아래로 드래그
       if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) return;
 
-      // 위로 드래깅
+      // 위로 드래그
       if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) return;
 
       // 실제로 이동 수행
       moveControl(dragIndex, hoverIndex);
 
-      // 주의: 여기서 모니터 아이템을 직접 변경하고 있습니다!
+      // 참고: 여기서 모니터 항목을 직접 변경합니다!
       // 일반적으로 불변성을 유지하는 것이 좋습니다.
-      // 그러나 성능을 위해 여기서는 비싼 인덱스 검색을 피하기 위해 변경하고 있습니다.
-      // TODO: 나중에 스테이트 관리로 변경
+      // 그러나 성능 이유로 여기서 인덱스 조회를 피하기 위해 여기에서 변경하고 있습니다.
+      // 나중에 상태 관리로 변경해야 할 예정
       item.index = hoverIndex;
     },
   });
@@ -93,7 +93,10 @@ function Control({ id, text, index, moveControl }: ControlProps) {
     }),
   });
 
+  // 드래그 앤 드롭 기능을 컨트롤의 참조와 결합합니다.
   drag(drop(ref));
+
+  // 스타일드 컴포넌트를 사용하여 컨트롤 컴포넌트를 렌더링합니다.
   return (
     <StyledControl
       ref={ref}
@@ -105,8 +108,10 @@ function Control({ id, text, index, moveControl }: ControlProps) {
   );
 }
 
+// 기본 내보내기로 컨트롤 컴포넌트 내보내기
 export default Control;
 
+// 특정 스타일을 기반으로 한 Styled 컴포넌트 정의
 const StyledControl = styled.div<StyledControlProps>`
   border: 1px dashed gray;
   padding: 0.5rem 1rem;

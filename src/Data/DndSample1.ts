@@ -1,4 +1,9 @@
-export const DndSample1 = [
+export interface Item {
+  id: string;
+  text: string;
+}
+
+export const DndSample1: Item[] = [
   {
     id: "con-1",
     text: "Write a cool JS library",
@@ -17,7 +22,7 @@ export const DndSample1 = [
   },
   {
     id: "con-5",
-    text: "Spam in Twitter and IRC to promote it (note that this element is taller than the others)",
+    text: "Spam in Twitter and IRC to promote it (note that this element is taller than the others)Spam in Twitter and IRC to promote it (note that this element is taller than the others)Spam in Twitter and IRC to promote it (note that this element is taller than the others)Spam in Twitter and IRC to promote it (note that this element is taller than the others)Spam in Twitter and IRC to promote it (note that this element is taller than the others)Spam in Twitter and IRC to promote it (note that this element is taller than the others)Spam in Twitter and IRC to promote it (note that this element is taller than the others)Spam in Twitter and IRC to promote it (note that this element is taller than the others)Spam in Twitter and IRC to promote it (note that this element is taller than the others)",
   },
   {
     id: "con-6",
