@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import DemoTest from "../components/DemoTest";
+import DemoTest from "./DemoTest";
 
 export const blockContext = createContext(null);
 

@@ -1,30 +1,30 @@
 export const DndSample1 = [
   {
-    id: 1,
+    id: "con-1",
     text: "Write a cool JS library",
   },
   {
-    id: 2,
+    id: "con-2",
     text: "Make it generic enough",
   },
   {
-    id: 3,
+    id: "con-3",
     text: "Write README",
   },
   {
-    id: 4,
+    id: "con-4",
     text: "Create some examples",
   },
   {
-    id: 5,
+    id: "con-5",
     text: "Spam in Twitter and IRC to promote it (note that this element is taller than the others)",
   },
   {
-    id: 6,
-    text: "???",
+    id: "con-6",
+    text: "I want go Home.",
   },
   {
-    id: 7,
+    id: "con-7",
     text: "PROFIT",
   },
 ];

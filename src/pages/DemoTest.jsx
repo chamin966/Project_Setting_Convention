@@ -7,7 +7,7 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 // Context
 import demoData from "../Data/demoData";
-import { blockContext } from "../pages/DemoPage";
+import { blockContext } from "./DemoPage";
 const debounce = (func, timeout = 1000) => {
   let timer;
 
