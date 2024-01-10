@@ -6,7 +6,5 @@
   "printWidth": 80,
   "trailingComma": "all",
   "orderedImports": true,
-  "bracketSpacing": true,
-  "jsxBracketSameLine": false,
-  "arrowParens": "always"
+  "jsxSingleQuote": true
 }

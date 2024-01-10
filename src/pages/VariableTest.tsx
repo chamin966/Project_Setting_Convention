@@ -8,7 +8,12 @@ const VariableTest = () => {
   const navigate = useNavigate();
   return (
     <>
-      <CommonButton label='홈으로' size='small' theme='primary' event={() => navigate('/')}/>
+      <CommonButton
+        label="홈으로"
+        size="small"
+        theme="primary"
+        event={() => navigate("/")}
+      />
       <span>variables.flex()</span>
       <ButtonsContainer1>
         <CommonButton />

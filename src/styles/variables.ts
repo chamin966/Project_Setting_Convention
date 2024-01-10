@@ -1,6 +1,6 @@
 // variables.js
 
-import { css } from 'styled-components';
+import { css } from "styled-components";
 
 // 사용법
 // 기본 설정값 사용  => flexSet()
@@ -8,10 +8,10 @@ import { css } from 'styled-components';
 
 const variables = {
   flex: (
-    direction = 'row',
-    justify = 'center',
-    align = 'center',
-    gap = '0'
+    direction = "row",
+    justify = "center",
+    align = "center",
+    gap = "0",
   ) => css`
     display: flex;
     flex-direction: ${direction};

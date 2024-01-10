@@ -1,18 +1,21 @@
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 function Home() {
   const navigate = useNavigate();
   return (
     <StyledHome>
-      <button onClick={() => navigate('/devTool')}>
+      <button onClick={() => navigate("/devTool")}>
         개발자 도구 클래스 네임 비교 페이지
       </button>
-      <button onClick={() => navigate('/buttons')}>버튼즈 페이지</button>
-      <button onClick={() => navigate('/themeTest')}>theme test 페이지</button>
-      <button onClick={() => navigate('/variablesTest')}>
+      <button onClick={() => navigate("/buttons")}>버튼즈 페이지</button>
+      <button onClick={() => navigate("/themeTest")}>theme test 페이지</button>
+      <button onClick={() => navigate("/variablesTest")}>
         variables test 페이지
       </button>
+      <button onClick={() => navigate("/crudTest")}> CRUD test 페이지</button>
+      <button onClick={() => navigate("/dndTest")}> dnd test 페이지</button>
+      <button onClick={() => navigate("/demoTest")}> demoTest 페이지</button>
     </StyledHome>
   );
 }
