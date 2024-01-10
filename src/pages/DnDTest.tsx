@@ -4,7 +4,9 @@ import { DndProvider } from "react-dnd";
 
 import { testData } from "../Data/testData";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import Row from "../components/molecule/Row";
+import Vertical from "../components/molecule/Vertical";
+import ColumnTest from "../components/molecule/ColumnTest";
+import Row from "../components/organism/Row";
 
 function DnDTest() {
   const navigate = useNavigate();
@@ -18,6 +20,8 @@ function DnDTest() {
       />
       <div>Dnd Test</div>
       <DndProvider backend={HTML5Backend}>
+        {/*<Vertical />*/}
+        {/*<ColumnTest />*/}
         <Row />
       </DndProvider>
     </div>
