@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import theme from "../../styles/theme";
+import styled, { css } from 'styled-components';
+import theme from '../../styles/theme';
 
 /**
  * **label**: 버튼 텍스트
@@ -17,8 +17,8 @@ interface ButtonProps {
  * CommonButton의 기본 속성을 설정합니다.
  */
 CommonButton.defaultProps = {
-  theme: "primary",
-  size: "medium",
+  theme: 'primary',
+  size: 'medium',
 };
 
 /**
@@ -60,16 +60,16 @@ type ButtonTheme = {
  */
 const sizes: Size = {
   large: {
-    padding: "20px 25px",
-    fontSize: "20px",
+    padding: '20px 25px',
+    fontSize: '20px',
   },
   medium: {
-    padding: "15px 20px",
-    fontSize: "17px",
+    padding: '15px 20px',
+    fontSize: '17px',
   },
   small: {
-    padding: "10px 15px",
-    fontSize: "15px",
+    padding: '10px 15px',
+    fontSize: '15px',
   },
 };
 

@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import CommonButton from "../components/atom/CommonButton";
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import CommonButton from '../components/atom/CommonButton';
 
 function DevTool() {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ function DevTool() {
         label="홈으로"
         size="small"
         theme="primary"
-        event={() => navigate("/")}
+        event={() => navigate('/')}
       />
       <StyledMain>
         스타일드 컴포넌트 클래스 네임 없이 사용

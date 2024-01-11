@@ -1,13 +1,13 @@
-import React, { useRef, forwardRef, useContext, useEffect } from "react";
-import styled from "styled-components";
-import { DndProvider } from "react-dnd";
+import React, { useRef, forwardRef, useContext, useEffect } from 'react';
+import styled from 'styled-components';
+import { DndProvider } from 'react-dnd';
 // import { HTML5Backend } from "react-dnd-html5-backend";
-import { useDrag, useDrop } from "react-dnd";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { useDrag, useDrop } from 'react-dnd';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 // Context
-import demoData from "../Data/demoData";
-import { blockContext } from "./DemoPage";
+import demoData from '../Data/demoData';
+import { blockContext } from './DemoPage';
 const debounce = (func, timeout = 1000) => {
   let timer;
 
@@ -26,7 +26,7 @@ const findBy = (find) => (tree, _parent) => {
     // console.log("key값: ", key);
     // console.log("tree[key]값: ", tree[key]);
     if (find(tree[key])) return [tree[key], _parent || tree];
-    if (typeof tree[key] === "object") {
+    if (typeof tree[key] === 'object') {
       const result = findBy(find)(tree[key], tree);
       if (result) return result;
     }
@@ -40,7 +40,7 @@ const removeBy = (find) => (tree) => {
       tree.splice(tree.indexOf(tree[key]), 1);
       return tree;
     }
-    if (typeof tree[key] === "object") {
+    if (typeof tree[key] === 'object') {
       const result = removeBy(find)(tree[key]);
       if (result) return tree;
     }
@@ -51,7 +51,7 @@ const removeBy = (find) => (tree) => {
 const deepCopyObj = (obj) => {
   let clone, value, key;
 
-  if (typeof obj !== "object" || obj === null) return obj;
+  if (typeof obj !== 'object' || obj === null) return obj;
   clone = Array.isArray(obj) ? [] : {};
 
   for (key in obj) {
@@ -69,13 +69,13 @@ const findIndex = (id, array) => array.findIndex((x) => x.id === id);
 const COLUMN = forwardRef((props, ref) => {
   const { blockState, isDragging, className, ...rest } = props;
   let classNames = [
-    "column",
+    'column',
     className,
-    isDragging ? "is-dragging" : "is-not-dragging",
+    isDragging ? 'is-dragging' : 'is-not-dragging',
   ];
 
   return (
-    <div ref={ref} className={`${classNames.join(" ")}`}>
+    <div ref={ref} className={`${classNames.join(' ')}`}>
       <p>
         {blockState.type} - {blockState.id}
       </p>
@@ -83,18 +83,18 @@ const COLUMN = forwardRef((props, ref) => {
     </div>
   );
 });
-COLUMN.displayName = "column";
+COLUMN.displayName = 'column';
 
 const SLOT = forwardRef((props, ref) => {
   const { blockState, isDragging, className, ...rest } = props;
   let classNames = [
-    "slot",
+    'slot',
     className,
-    isDragging ? "is-dragging" : "is-not-dragging",
+    isDragging ? 'is-dragging' : 'is-not-dragging',
   ];
 
   return (
-    <div ref={ref} className={`${classNames.join(" ")}`}>
+    <div ref={ref} className={`${classNames.join(' ')}`}>
       <p>
         {blockState.type} - {blockState.id}
       </p>
@@ -102,18 +102,18 @@ const SLOT = forwardRef((props, ref) => {
     </div>
   );
 });
-SLOT.displayName = "slot";
+SLOT.displayName = 'slot';
 
 const COMPONENT = forwardRef((props, ref) => {
   const { blockState, isDragging, className, ...rest } = props;
   let classNames = [
-    "component",
+    'component',
     className,
-    isDragging ? "is-dragging" : "is-not-dragging",
+    isDragging ? 'is-dragging' : 'is-not-dragging',
   ];
 
   return (
-    <div ref={ref} className={`${classNames.join(" ")}`}>
+    <div ref={ref} className={`${classNames.join(' ')}`}>
       <p>
         {blockState.type} - {blockState.id}
       </p>
@@ -121,7 +121,7 @@ const COMPONENT = forwardRef((props, ref) => {
     </div>
   );
 });
-COMPONENT.displayName = "com";
+COMPONENT.displayName = 'com';
 
 // prettier-ignore
 const resolvePath = (id, _return = {}) => (blocks, _depth = 0) => {
@@ -190,9 +190,9 @@ const handleHover = debounce((obj) => {
   )
     return;
   if (
-    dragItem.type === "SLOT" &&
-    hoveringOnTopOfBlock[0].type === "COMPONENT" &&
-    !hoveringOnTopOfBlock[1].hasOwnProperty("type")
+    dragItem.type === 'SLOT' &&
+    hoveringOnTopOfBlock[0].type === 'COMPONENT' &&
+    !hoveringOnTopOfBlock[1].hasOwnProperty('type')
   )
     return;
 
@@ -200,8 +200,8 @@ const handleHover = debounce((obj) => {
   const pathFrom = resolvePath(dragId)(blocks);
   const pathTo = resolvePath(dropId)(blocks);
 
-  console.log("pathFrom: ", pathFrom);
-  console.log("pathTo: ", pathTo);
+  console.log('pathFrom: ', pathFrom);
+  console.log('pathTo: ', pathTo);
 
   // Clone block statex
   const blocksClone = deepCopyObj(blocks);
@@ -235,7 +235,7 @@ const RenderBlocks = (props) => {
   // const ref = useRef(null); // No animations
 
   const [{ isOver, dragId, dropId, movement }, drop] = useDrop({
-    accept: "ITEM",
+    accept: 'ITEM',
     hover: (dragItem, monitor) => {
       if (!dragId || !isOver || dragId === dropId || !dragItem) return;
       if (dragItem.prevId === dropId) return;
@@ -255,26 +255,26 @@ const RenderBlocks = (props) => {
         dominant:
           Math.abs(monitor.getDifferenceFromInitialOffset()?.x) >
           Math.abs(monitor.getDifferenceFromInitialOffset()?.y)
-            ? "x"
-            : "y",
+            ? 'x'
+            : 'y',
         direction:
           Math.abs(monitor.getDifferenceFromInitialOffset()?.x) >
           Math.abs(monitor.getDifferenceFromInitialOffset()?.y)
             ? monitor.getDifferenceFromInitialOffset()?.x > 0
-              ? "right"
-              : "left"
+              ? 'right'
+              : 'left'
             : Math.abs(monitor.getDifferenceFromInitialOffset()?.x) <
                 Math.abs(monitor.getDifferenceFromInitialOffset()?.y)
               ? monitor.getDifferenceFromInitialOffset()?.y > 0
-                ? "down"
-                : "up"
+                ? 'down'
+                : 'up'
               : null,
       },
     }),
   });
 
   const [{ isDragging }, drag] = useDrag({
-    type: "ITEM",
+    type: 'ITEM',
     item: (monitor) => {
       return {
         id: blockState.id,
@@ -294,7 +294,7 @@ const RenderBlocks = (props) => {
 
   drag(drop(ref));
 
-  if (blockState.type === "COLUMN")
+  if (blockState.type === 'COLUMN')
     return (
       <COLUMN
         ref={ref}
@@ -305,13 +305,13 @@ const RenderBlocks = (props) => {
         <RenderChildren {...props} blockState={blockState} />
       </COLUMN>
     );
-  else if (blockState.type === "SLOT")
+  else if (blockState.type === 'SLOT')
     return (
       <SLOT ref={ref} blockState={blockState} isDragging={isDragging} {...rest}>
         <RenderChildren {...props} blockState={blockState} />
       </SLOT>
     );
-  else if (blockState.type === "COMPONENT")
+  else if (blockState.type === 'COMPONENT')
     return (
       <COMPONENT
         ref={ref}

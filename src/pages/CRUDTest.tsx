@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import CommonButton from "../components/atom/CommonButton";
-import styled from "styled-components";
-import variables from "../styles/variables";
-import { formData } from "../Data/formData";
+import { useNavigate } from 'react-router-dom';
+import CommonButton from '../components/atom/CommonButton';
+import styled from 'styled-components';
+import variables from '../styles/variables';
+import { formData } from '../Data/formData';
 
 function CRUDTest() {
   const navigate = useNavigate();
@@ -24,22 +24,22 @@ function CRUDTest() {
   return (
     <Container>
       <CommonButton
-        label={"홈으로"}
-        size={"small"}
-        theme={"primary"}
-        event={() => navigate("/")}
+        label={'홈으로'}
+        size={'small'}
+        theme={'primary'}
+        event={() => navigate('/')}
       />
       <CommonButton
-        label={"con-1을 찾는 경우"}
-        size={"small"}
-        theme={"primary"}
+        label={'con-1을 찾는 경우'}
+        size={'small'}
+        theme={'primary'}
       />
     </Container>
   );
 }
 
 const Container = styled.div`
-  ${variables.flex("column", "start", "flex-start", "20px")}
+  ${variables.flex('column', 'start', 'flex-start', '20px')}
 `;
 
 export default CRUDTest;

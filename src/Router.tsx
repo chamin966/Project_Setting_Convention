@@ -1,12 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import DevTool from "./pages/DevTool";
-import Buttons from "./pages/Buttons";
-import ThemeTest from "./pages/ThemeTest";
-import VariableTest from "./pages/VariableTest";
-import CRUDTest from "./pages/CRUDTest";
-import DemoPage from "./pages/DemoPage";
-import DnDTest from "./pages/DnDTest";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import DevTool from './pages/DevTool';
+import Buttons from './pages/Buttons';
+import ThemeTest from './pages/ThemeTest';
+import VariableTest from './pages/VariableTest';
+import CRUDTest from './pages/CRUDTest';
+import DemoPage from './pages/DemoPage';
+import DnDTest from './pages/DnDTest';
 
 function Router() {
   return (

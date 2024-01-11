@@ -1,5 +1,5 @@
-import CommonButton from "../components/atom/CommonButton";
-import { useNavigate } from "react-router-dom";
+import CommonButton from '../components/atom/CommonButton';
+import { useNavigate } from 'react-router-dom';
 
 function Buttons() {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ function Buttons() {
         label="홈으로"
         size="small"
         theme="primary"
-        event={() => navigate("/")}
+        event={() => navigate('/')}
       />
       <CommonButton label="버튼1" size="large" theme="primary" />
       <CommonButton label="버튼2" size="medium" theme="secondary" />

@@ -1,8 +1,8 @@
-import { useDrag, useDrop } from "react-dnd";
-import { useRef } from "react";
-import { ItemTypes } from "../../Data/itemType";
-import { Identifier, XYCoord } from "dnd-core";
-import styled from "styled-components";
+import { useDrag, useDrop } from 'react-dnd';
+import { useRef } from 'react';
+import { ItemTypes } from '../../Data/itemType';
+import { Identifier, XYCoord } from 'dnd-core';
+import styled from 'styled-components';
 
 // 컨트롤 컴포넌트의 매개변수를 정의합니다.
 export interface ControlVerticalProps {
@@ -122,5 +122,5 @@ const StyledControl = styled.div<StyledControlVerticalProps>`
   margin-bottom: 0.5rem;
   background-color: gray;
   cursor: move;
-  opacity: ${(props) => (props.isDragging ? "0.5" : "1")};
+  opacity: ${(props) => (props.isDragging ? '0.5' : '1')};
 `;

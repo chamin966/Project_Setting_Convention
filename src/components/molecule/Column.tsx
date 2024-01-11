@@ -1,17 +1,12 @@
 // 필요한 종속성 및 컴포넌트를 가져옵니다.
-import styled from "styled-components";
-import { useCallback, useRef, useState } from "react";
-import update from "immutability-helper";
-import { IControl, ControlsSample } from "../../Data/DndSamples";
-import Control from "../atom/Control";
-import { useDrag, useDrop } from "react-dnd";
-import { Identifier, XYCoord } from "dnd-core";
-import { ItemTypes } from "../../Data/itemType";
-
-// 행의 상태를 위한 인터페이스를 정의합니다. 이는 컨트롤 배열로 이루어져 있습니다.
-export interface ColumnState {
-  controls: IControl[];
-}
+import styled from 'styled-components';
+import { useCallback, useRef, useState } from 'react';
+import update from 'immutability-helper';
+import { IControl } from '../../Data/DndSamples';
+import Control from '../atom/Control';
+import { useDrag, useDrop } from 'react-dnd';
+import { Identifier, XYCoord } from 'dnd-core';
+import { ItemTypes } from '../../Data/itemType';
 
 export interface ColumnProps {
   id: string;
@@ -154,7 +149,7 @@ export default Column;
 const StyledColumn = styled.div<StyledColumnProps>`
   width: 1200px;
   cursor: move;
-  opacity: ${(props) => (props.isDragging ? "0.5" : "1")};
+  opacity: ${(props) => (props.isDragging ? '0.5' : '1')};
   margin-bottom: 0.5rem;
 `;
 

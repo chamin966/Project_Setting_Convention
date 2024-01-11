@@ -1,9 +1,9 @@
 // 필요한 종속성 및 컴포넌트를 가져옵니다.
-import styled from "styled-components";
-import { useCallback, useState } from "react";
-import update from "immutability-helper";
-import { IControl, ControlsSample } from "../../Data/DndSamples";
-import Control from "../atom/Control";
+import styled from 'styled-components';
+import { useCallback, useState } from 'react';
+import update from 'immutability-helper';
+import { IControl, ControlsSample } from '../../Data/DndSamples';
+import Control from '../atom/Control';
 
 // 행의 상태를 위한 인터페이스를 정의합니다. 이는 컨트롤 배열로 이루어져 있습니다.
 export interface ColumnState {

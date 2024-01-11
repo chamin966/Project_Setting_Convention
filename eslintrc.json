@@ -16,7 +16,9 @@
     }
   },
 
-  "rules": {},
+  "rules": {
+    "prettier/prettier": ["error", { "singleQuote": true }]
+  },
 
   "settings": {
     "react": {

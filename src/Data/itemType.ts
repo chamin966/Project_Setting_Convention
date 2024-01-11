@@ -1,5 +1,5 @@
 export const ItemTypes = {
-  CONTROL: "control",
-  COLUMN: "column",
-  ROW: "row",
+  CONTROL: 'control',
+  COLUMN: 'column',
+  ROW: 'row',
 };
